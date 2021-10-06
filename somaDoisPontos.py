@@ -1,16 +1,13 @@
 from math import sqrt
 
 
+#Soma de dois pontos
 def matrixSum(pontoA, pontoB):
 
-    distancia = (            ((pontoB[0] - pontoA[0]) **2 ) + ((pontoB[1] - pontoA[1]) ** 2)           )
+    distancia = (            ((pontoB[0] - pontoA[0]) **2 ) + ((pontoB[1] - pontoA[1]) ** 2)           ) #Aplicação da fórmula de distância entre dois pontos
+                                                                                                         
+                                                                                                        
+    distancia = sqrt(distancia)                                                                          #Dado por D = sqrt(Bx - Ax)^2 + ((By - Ay)^2))
 
-    distancia = sqrt(distancia)
-
-    return distancia
-
-
-
-
-
+    return distancia # Retorna a distância entre os dois pontos dados
     

@@ -10,7 +10,7 @@ coordMatrix = []
 
 print("Insira as coordenadas do caixeiro. Digite 'exit' para terminar de colocar as coordenadas. \n")
 
-
+#Loop para inserir as coordenadas
 while True:
 
     coord = input().split()
@@ -18,13 +18,14 @@ while True:
     if "exit" in coord:
         break
 
+    #Valores adicionados à matriz principal
     coordMatrix.append(coord)
 
 
 
 
 
-
+#Lista com as distâncias possíveis depois de calculados todos os pontos e retirado o menor
 distanciasPossiveis= []
 
 
@@ -43,8 +44,8 @@ coordPermut = permutations(coordMatrix)
 for permut in (coordPermut):
 
     for i in range(len(permut) - 1):
-        sum = somaDoisPontos.matrixSum(permut[i], permut[i + 1])
-        distanciasPossiveis.append(sum)
+        sum = somaDoisPontos.matrixSum(permut[i], permut[i + 1]) #Coloca as coordenadas corretamentes na função que calcula a distância entre os dois pontos
+        distanciasPossiveis.append(sum)#Depois de calculada, coloca essa função na lista
 
 
 
