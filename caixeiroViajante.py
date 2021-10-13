@@ -1,8 +1,6 @@
-from math import dist, perm
 import somaDoisPontos
-
 from itertools import permutations
-
+import matplotlib.pyplot as plt
 
 coordMatrix = []
 
@@ -25,11 +23,22 @@ while True:
 
 
 
-#Lista com as distâncias possíveis depois de calculados todos os pontos e retirado o menor
-distanciasPossiveis= []
 
 
-#Processo para transformar todos os elementos em inteiros
+
+#Lista que armazena a soma das iterações entre os pontos das coordenadas
+pontosCalc = []
+
+
+#Soma de todos os pontos
+somasPossiveis = []
+
+
+#Dicionário que armazena a distância percorrida e as coordenadas
+somaCoord = {}
+
+
+#Loop para transformar todos os elementos em inteiros
 for i in range(len(coordMatrix)):
     for j in range(2):
         (coordMatrix[i][j]) = int(coordMatrix[i][j])
@@ -45,9 +54,41 @@ for permut in (coordPermut):
 
     for i in range(len(permut) - 1):
         sum = somaDoisPontos.matrixSum(permut[i], permut[i + 1]) #Coloca as coordenadas corretamentes na função que calcula a distância entre os dois pontos
-        distanciasPossiveis.append(sum)#Depois de calculada, coloca essa função na lista
+        pontosCalc.append(sum)#Depois de calculada, coloca essa função na lista
+    
+    
+    somaCalc = somaDoisPontos.sumFloat(pontosCalc)
+    somasPossiveis.append(somaCalc)
+    
+    somaCoord.update({str(somaCalc) : str(permut)})
+    
+    
+    pontosCalc.clear()
+    
+
+
+print(f"A menor distancia que o caixeiro pode percorrer dentre as coordenadas {coordMatrix} é {min(somasPossiveis)}")
+
+maiorValor = str(min(somasPossiveis))
+
+print(f"Coordenada com a menor distância para o caixeiro: {somaCoord.get(maiorValor)}")
+
+
+
+#---------------------------------------------------------------------------------------------Plotagem de Gráficos#---------------------------------------------------------------------------------------------
+
+x_plt = []
+y_plt = []
+
+for i in range(len(coordMatrix)):    
+        x_plt.append(coordMatrix[i][0])
+        y_plt.append(coordMatrix[i][1])
 
 
 
 
-print(f"A menor distancia que o caixeiro pode percorrer dentre as coordenadas {coordMatrix} é {min(distanciasPossiveis)}")
+ax = plt.plot(x_plt, y_plt, label="Coordenadas das posições do caixeiro")
+plt.xlim(0, int(max(somasPossiveis)))
+plt.ylim(0, int(max(somasPossiveis)))
+plt.legend()
+plt.show()

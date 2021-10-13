@@ -11,3 +11,12 @@ def matrixSum(pontoA, pontoB):
 
     return distancia # Retorna a distância entre os dois pontos dados
     
+
+
+def sumFloat(lst):
+    sum = 0
+    for i in range(len(lst)):
+        sum += lst[i]
+
+    
+    return sum
