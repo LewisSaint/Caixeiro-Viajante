@@ -73,6 +73,13 @@ maiorValor = str(min(somasPossiveis))
 
 print(f"Coordenada com a menor distância para o caixeiro: {somaCoord.get(maiorValor)}")
 
+coordMelhorCaminho = str(somaCoord.get(maiorValor)).replace("(","").replace("),","")
+
+coordMelhorCaminho = list(coordMelhorCaminho)
+
+print(coordMelhorCaminho)
+
+
 
 
 #---------------------------------------------------------------------------------------------Plotagem de Gráficos#---------------------------------------------------------------------------------------------
@@ -80,9 +87,9 @@ print(f"Coordenada com a menor distância para o caixeiro: {somaCoord.get(maiorV
 x_plt = []
 y_plt = []
 
-for i in range(len(coordMatrix)):    
-        x_plt.append(coordMatrix[i][0])
-        y_plt.append(coordMatrix[i][1])
+for i in range(len(coordMelhorCaminho)):    
+        x_plt.append(coordMelhorCaminho[i][0])
+        y_plt.append(coordMelhorCaminho[i][1])
 
 
 
