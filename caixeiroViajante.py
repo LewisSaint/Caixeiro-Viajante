@@ -73,11 +73,27 @@ maiorValor = str(min(somasPossiveis))
 
 print(f"Coordenada com a menor distância para o caixeiro: {somaCoord.get(maiorValor)}")
 
-coordMelhorCaminho = str(somaCoord.get(maiorValor)).replace("(","").replace("),","")
 
-coordMelhorCaminho = list(coordMelhorCaminho)
 
-print(coordMelhorCaminho)
+coordMelhorCaminho = str(somaCoord.get(maiorValor)).replace("(","").replace(")","").replace("[","").replace("]","").replace(",", "").split()
+
+
+
+copyCoordMelhorCaminho = [int(i) for i in coordMelhorCaminho]
+
+coordMelhorCaminho.clear()
+
+
+count = int(0)
+for index in range((len(copyCoordMelhorCaminho)//2) - 1):
+        
+    coordMelhorCaminho.append([copyCoordMelhorCaminho[count], copyCoordMelhorCaminho[count + 1]])
+    count += 2
+
+
+print("**" * 20 , "\n" * 4, coordMelhorCaminho)
+
+
 
 
 
