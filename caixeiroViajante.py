@@ -73,8 +73,6 @@ maiorValor = str(min(somasPossiveis))
 
 print(f"Coordenada com a menor distância para o caixeiro: {somaCoord.get(maiorValor)}")
 
-
-
 coordMelhorCaminho = str(somaCoord.get(maiorValor)).replace("(","").replace(")","").replace("[","").replace("]","").replace(",", "").split()
 
 
@@ -90,14 +88,6 @@ for index in range((len(copyCoordMelhorCaminho)//2) - 1):
     coordMelhorCaminho.append([copyCoordMelhorCaminho[count], copyCoordMelhorCaminho[count + 1]])
     count += 2
 
-
-print("**" * 20 , "\n" * 4, coordMelhorCaminho)
-
-
-
-
-
-
 #---------------------------------------------------------------------------------------------Plotagem de Gráficos#---------------------------------------------------------------------------------------------
 
 x_plt = []
@@ -110,7 +100,7 @@ for i in range(len(coordMelhorCaminho)):
 
 
 
-ax = plt.plot(x_plt, y_plt, label="Coordenadas das posições do caixeiro")
+ax = plt.plot(x_plt, y_plt, label="Trajetória do caixeiro")
 plt.xlim(0, int(max(somasPossiveis)))
 plt.ylim(0, int(max(somasPossiveis)))
 plt.legend()
